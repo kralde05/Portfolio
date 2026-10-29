@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keith Rashied E. Alde | Portfolio</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f9f4f400;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 10%;
+            background: #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 26px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #00bcd4;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 15px;
+            color: #eee;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.25s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #00bcd4;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #00bcd4;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        section {
+            padding: 70px 10% 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        section:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        section:nth-child(odd) {
+            background-color: #f4f4f9;
+        }
+
+        #home {
+            padding-top: 130px;
+        }
+
+        /* --- Headings --- */
+        h2 {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: #00bcd4;
+            text-align: left;
+            width: 100%;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #222;
+            margin-top: 6px;
+            border-radius: 2px;
+        }
+
+        p {
+            font-size: 16px;
+            max-width: 900px;
+            color: #444;
+            margin-bottom: 14px;
+            text-align: left;
+            line-height: 1.7;
+        }
+
+        .home-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 45px;
+            max-width: 1000px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .profile-pic-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #00bcd4;
+            box-shadow: 0 10px 25px rgba(0, 188, 212, 0.25);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 30px rgba(0, 188, 212, 0.4);
+        }
+
+        .home-text {
+            max-width: 600px;
+        }
+
+        .home-text h1 {
+            text-align: left;
+            font-size: 42px;
+            margin-bottom: 12px;
+            color: #222;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .home-text p {
+            text-align: left;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            background: #00bcd4;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: #222;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn-cta:hover {
+            background-color: #00bcd4;
+            transform: translateY(-2px);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 10px;
+        }
+
+        .about-box {
+            background: #fff;
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .quick-facts {
+            background: #222;
+            color: #fff;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .quick-facts h3 {
+            color: #00bcd4;
+            margin-bottom: 14px;
+            font-size: 18px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 8px;
+        }
+
+        .quick-facts ul {
+            list-style: none;
+        }
+
+        .quick-facts li {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #ccc;
+        }
+
+        .quick-facts strong {
+            color: #fff;
+        }
+
+        .accordion-container {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        details {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 14px 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        section:nth-child(odd) details {
+            background: #fff;
+        }
+
+        details[open] {
+            border-left: 4px solid #00bcd4;
+            box-shadow: 0 4px 12px rgba(0,188,212,0.1);
+        }
+
+        summary {
+            font-size: 17px;
+            font-weight: 600;
+            color: #222;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 20px;
+            color: #00bcd4;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        .details-content {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #f0f0f0;
+            font-size: 15px;
+            color: #555;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        input[type="radio"].filter-radio {
+            display: none;
+        }
+
+        .filter-label {
+            padding: 8px 18px;
+            background: #222;
+            color: #fff;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .filter-label:hover {
+            background: #333;
+            color: #00bcd4;
+        }
+
+        #filter-all:checked ~ .filter-controls label[for="filter-all"],
+        #filter-lang:checked ~ .filter-controls label[for="filter-lang"],
+        #filter-web:checked ~ .filter-controls label[for="filter-web"],
+        #filter-tools:checked ~ .filter-controls label[for="filter-tools"] {
+            background: #00bcd4;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .skill-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #222;
+            color: #fff;
+            padding: 12px 22px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-icon {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-5px);
+            background-color: #333;
+            box-shadow: 0 8px 15px rgba(0, 188, 212, 0.35);
+        }
+
+        .skill-box:hover span {
+            color: #00bcd4;
+            transition: color 0.3s ease;
+        }
+
+        #filter-lang:checked ~ .skills-grid .skill-box:not(.lang),
+        #filter-web:checked ~ .skills-grid .skill-box:not(.web),
+        #filter-tools:checked ~ .skills-grid .skill-box:not(.tools) {
+            display: none;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 950px;
+            margin-top: 15px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 22px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: #00bcd4;
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        .tag-list {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f0fdfa;
+            color: #00bcd4;
+            border: 1px solid #ccfbf1;
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 10px;
+        }
+
+        .contact-info p {
+            margin-bottom: 12px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .contact-detail-icon {
+            width: 36px;
+            height: 36px;
+            background: #222;
+            color: #00bcd4;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .form-control {
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #00bcd4;
+            box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .btn-submit {
+            background-color: #222;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #00bcd4;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px 10%;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: #00bcd4;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 15px 5%;
+            }
+
+            nav {
+                margin-top: 12px;
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            section {
+                padding: 50px 6% 30px;
+            }
+
+            #home {
+                padding-top: 140px;
+            }
+
+            .home-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+            }
+
+            .profile-pic {
+                width: 180px;
+                height: 180px;
+            }
+
+            .home-text h1 {
+                font-size: 32px;
+            }
+
+            .about-grid, .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-box {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#home" class="logo">My Portfolio<span>.</span></a>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#awards">Awards</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="home-container">
+            <div class="profile-pic-wrapper">
+                <img src="" alt="Profile Picture" class="profile-pic">
+            </div>
+            
+            <div class="home-text">
+                <h1>Hi, I'm Keith Rashied E. Alde</h1>
+                <p>I am an Information Systems student and creator focused on software development, data, and building excellent digital experiences.</p>
+                <a href="#contact" class="btn-cta">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        
+        <div class="about-grid">
+            <div class="about-box">
+                <p>I am currently pursuing my Bachelor of Science in Information Systems at Dr. Filemon C. Aguilar Memorial College of Las Piñas in the Philippines. Driven by a deep curiosity for how technology shapes modern systems, I have developed a strong foundation in structured code design, data structures, and application development. My academic journey centers on understanding how clean logic and sound architecture come together to build efficient software solutions.</p>
+                
+                <p>My technical toolkit spans web development fundamentals like HTML and CSS alongside versatile programming languages including Python, C++, and Java. I frequently work with tools like Jupyter Notebooks and Microsoft Excel to process, analyze, and visualize data. Whether I am developing console utilities, practicing object-oriented programming, or studying cybersecurity principles, I prioritize clarity and modular design in my workflow.</p>
+                
+                <p>Beyond software development, I am an active digital content creator with experience in 3D architectural rendering, visual styling, and creative writing. I enjoy writing original lyrics and composing musical tracks across different genres, merging analytical logic with artistic storytelling. Outside of my studies and design projects, I stay energized through badminton and enjoy expanding my horizons by studying the Korean language.</p>
+            </div>
+
+            <div class="quick-facts">
+                <h3>Highlights</h3>
+                <ul>
+                    <li><strong>Location:</strong> Las Piñas City, Philippines</li>
+                    <li><strong>Degree:</strong> BS Information Systems</li>
+                    <li><strong>Institution:</strong> DFCAMCLP</li>
+                    <li><strong>Interests:</strong> Badminton,Programming </li>
+                     <li><strong>Skills:</strong> Critical Thinking, Problem Solving, Adaptability, Time Management </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <p>Click any level to view institution details and academic achievements:</p>
+
+        <div class="accordion-container">
+            <details open>
+                <summary>Bachelor of Science in Information Systems (BSIS)</summary>
+                <div class="details-content">
+                    <strong>Dr. Filemon C. Aguilar Memorial College of Las Piñas (DFCAMCLP)</strong>
+                    <p>Current Undergraduate Program focused on enterprise architecture, database systems, software engineering, and data analytics.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Senior High School</summary>
+                <div class="details-content">
+                    <strong>Holy Rosary Academy Of Las Piñas City</strong>
+                    <p>Completed Senior High School with <strong>With Honors</strong> recognition in 2025, specializing in the Academic Track with a focus on Information Technology.</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Secondary Education</summary>
+                <div class="details-content">
+                    <strong>Captain Albert Aguilar National High School</strong>
+                    <p>Achieved <strong>Consistent With Honors</strong> recognition from Grade 8 through Grade 10 (2021).</p>
+                </div>
+            </details>
+
+            <details>
+                <summary>Primary Education</summary>
+                <div class="details-content">
+                    <strong>CAA Elementary School Annex</strong>
+                    <p>Served as Representative for the Elementary School Division in Oral Debate (2018).</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section id="awards">
+        <h2>Awards & Certifications</h2>
+        <div class="accordion-container">
+            <details open>
+                <summary>Grade 12 With Honors — 2025</summary>
+                <div class="details-content">
+                    Awarded Academic Honor recognition upon completion of Senior High School at Holy Rosary Academy Of Las Piñas City.
+                </div>
+            </details>
+
+            <details>
+                <summary>Consistent With Honors (Grade 8-10) — 2021</summary>
+                <div class="details-content">
+                    Maintained high academic standing across consecutive secondary school academic years at Captain Albert Aguilar National High School.
+                </div>
+            </details>
+
+            <details>
+                <summary>Representative for Elementary Division in Oral Debate — 2018</summary>
+                <div class="details-content">
+                    Selected as divisional representative for competitive oral debate, demonstrating public speaking and analytical reasoning skills.
+                </div>
+            </details>
+
+            <details>
+                <summary>Hiphop Dance Contest 5th Place — 2023</summary>
+                <div class="details-content">
+                    Participated and placed 5th in regional creative hiphop dance team performance competition.
+                </div>
+            </details>
+
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <p>Here's my platform to build and showcase my technical abilities:</p>
+
+        <input type="radio" id="filter-all" name="skill-filter" class="filter-radio" checked>
+        <input type="radio" id="filter-lang" name="skill-filter" class="filter-radio">
+        <input type="radio" id="filter-web" name="skill-filter" class="filter-radio">
+        <input type="radio" id="filter-tools" name="skill-filter" class="filter-radio">
+
+        <div class="skills-grid">
+            <div class="skill-box web">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="skill-icon">
+                <span>HTML</span>
+            </div>
+            
+            <div class="skill-box web">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="skill-icon">
+                <span>CSS</span>
+            </div>
+            
+            <div class="skill-box lang">
+                <img src="https://www.citypng.com/public/uploads/thumbnail/hd-python-logo-symbol-transparent-png-735811696257415gp3su8f5sg.png" alt="Python" class="skill-icon">
+                <span>Python</span>
+            </div>
+            
+            <div class="skill-box tools">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original.svg" alt="Jupyter" class="skill-icon">
+                <span>Jupyter</span>
+            </div>
+            
+            <div class="skill-box lang">
+                <img src="https://icon2.cleanpng.com/20240213/wak/transparent-java-logo-steaming-cup-of-coffee-with-red-1710879284917.webp" alt="Java" class="skill-icon">
+                <span>Java</span>
+            </div>
+
+            <div class="skill-box lang">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="skill-icon">
+                <span>C++</span>
+            </div>
+
+            <div class="skill-box tools">
+                <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg/960px-Microsoft_Office_Excel_%282019%E2%80%932025%29.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20190925171014" alt="Excel" class="skill-icon">
+                <span>Excel</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects & Creative Work</h2>
+        <p>A selection of technical projects, data notebooks, and visual design explorations:</p>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <div>
+                    <h3>Student Calculator</h3>
+                    <p>A simple calculator application built for educational purposes, demonstrating basic programming concepts and user interface design.</p>
+                </div>
+                <div class="tag-list">
+                    <span class="tag">Java</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h3>Student Management System</h3>
+                    <p>A comprehensive application for managing student records, grades, and academic information.</p>
+                </div>
+                <div class="tag-list">
+                    <span class="tag">Java</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div>
+                    <h3>POS System</h3>
+                    <p>Design and implementation of a point-of-sale system for managing transactions and inventory.</p>
+                </div>
+                <div class="tag-list">
+                    <span class="tag">Java</span>
+                    <span class="tag">SQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out for academic inquiries, software collaboration, or project work.</p>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">@</div>
+                    <div>
+                        <small style="color: #777;">Email</small><br>
+                        aldekeithrashied@gmail.com
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">📍</div>
+                    <div>
+                        <small style="color: #777;">Location</small><br>
+                        Las Piñas City, Philippines
+                    </div>
+                </div>
+
+                <div class="contact-detail">
+                    <div class="contact-detail-icon">🎓</div>
+                    <div>
+                        <small style="color: #777;">College</small><br>
+                        DFCAMCLP
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" action="#" method="get" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Keith Rashied E. Alde BSIS 2-04</p>
+    </footer>
+
+</body>
+</html>
